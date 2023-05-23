@@ -34,6 +34,28 @@
                 @enderror
             </div>
 
+            {{-- type select --}}
+            <div class="input-group mb-3">
+                <label for="type_id">Type</label>
+                <select name="type_id" id="type_id" class="mx-3 form-select @error('type_id') is-invalid @enderror">
+
+                    <option value="" disabled selected>Choose a type for your project</option>
+                    <option value="">None</option>
+
+                    @foreach($types as $type) 
+                        <option value="{{$type->id}}" {{$type->id == old('type_id') ? 'selected' : ''}}>{{$type->title}}</option>
+                    @endforeach
+
+                </select>
+                            
+                @error('type_id')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
+            </div>
+            {{-- // type select --}}
+
             <div class="input-group mb-3">
                 <label for="thumbnail">Thumbnail</label>
                 <input class="mx-3 form-control @error('thumb') is-invalid @enderror" type="text" id="thumbnail" name="thumbnail" value="{{old('thumbnail')}}" required>

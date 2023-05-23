@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Project;
+use App\Models\Type;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -28,7 +29,9 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('admin.projects.create');
+        $types = Type::all();
+
+        return view('admin.projects.create', compact('types'));
     }
 
     /**
@@ -114,6 +117,7 @@ class ProjectController extends Controller
         $validator = Validator::make($formData, [
             'title' => 'required|min:5|max:50',
             'description' => 'required|max:255',
+            'type_id' => 'nullable|exists:types,id',
             'thumbnail' => 'required',
             'languages' => 'required',
             'year' => 'nullable|min:4|max:4|gte:2015|lte:2023',
@@ -124,6 +128,7 @@ class ProjectController extends Controller
             'title.max' => 'Title field cannot be longer than 50 characters.',
             'description.required' => 'Description field is mandatory.',
             'description.max' => 'Description field cannot be longer than 255 characters.',
+            'type_id.exists' => 'Please select a category chosen between the existing ones',
             'thumb.required' => "Thumbnail path is mandatory.",
             'languages.required' => "Languages field is mandatory.",
             'year.min' => "Year must be 4 digits long",
