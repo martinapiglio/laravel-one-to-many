@@ -14,6 +14,11 @@
         <strong>Description</strong>: {{$project->description}}
     </p>
 
+    <div class="mb-3">
+        <strong>Project type</strong>: {{$project->type->title ?? 'Unknown'}}
+        {{-- you can also use -->     {{$project->type?->title}}     that shows the title when exist, otherwise blank --}}
+    </div>
+
     <img class="img-thumbnail mb-2" src="{{$project->thumbnail}}" alt="">
     <div class="mb-2"><strong>Languages</strong>: {{$project->languages}}</div>
     <div class="mb-2"><strong>Github repository name</strong>: {{$project->github_repo}}</div>
