@@ -7,9 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
 {
+    use HasFactory;
+
     protected $fillable = ['title', 'description', 'slug', 'thumbnail', 'languages', 'year', 'github_repo'];
+    
     protected $attributes = [
         'year' => 2023
     ];
-    use HasFactory;
+
+    public function type() {
+        return $this->belongsTo(Type::class);
+    }
+
 }
