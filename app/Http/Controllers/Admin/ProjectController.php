@@ -130,7 +130,7 @@ class ProjectController extends Controller
             'title.max' => 'Title field cannot be longer than 50 characters.',
             'description.required' => 'Description field is mandatory.',
             'description.max' => 'Description field cannot be longer than 255 characters.',
-            'type_id.exists' => 'Please select a category chosen between the existing ones',
+            'type_id.exists' => 'Please select a type chosen among the existing ones',
             'thumb.required' => "Thumbnail path is mandatory.",
             'languages.required' => "Languages field is mandatory.",
             'year.min' => "Year must be 4 digits long",

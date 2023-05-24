@@ -18,10 +18,9 @@ class TypeSeeder extends Seeder
      * @return void
      */
     public function run(Faker $faker) {
-        // creo un array con la lista delle tipologie di progetto
+
         $types = ['Front-End', 'Back-End', 'Full Stack', 'UI', 'UX', 'Marketing'];
 
-        // ciclo l'array per creare un record per ogni tipologia per test di dati
         foreach($types as $type) {
 
             $newType = new Type();

@@ -14,6 +14,7 @@
             <thead class="text-white">
                 <th>Title</th>
                 <th>Languages</th>
+                <th>Type</th>
                 <th>Year</th>
                 <th>Repository name</th>
                 <th>Details</th>
@@ -25,6 +26,7 @@
                 <tr>
                     <td>{{$project->title}}</td>
                     <td>{{$project->languages}}</td>
+                    <td>{{$project->type?->title}}</td>
                     <td>{{$project->year}}</td>
                     <td>{{$project->github_repo}}</td>
                     <td><a href="{{route('admin.projects.show', $project->slug)}}">click here</a></td>

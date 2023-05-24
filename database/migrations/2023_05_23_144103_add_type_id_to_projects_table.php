@@ -20,7 +20,7 @@ return new class extends Migration
             $table->foreign('type_id')
                 ->references('id')
                 ->on('types')
-                ->onDelete('set null');
+                ->onDelete('set null'); //con set null ogni volta che eliminiamo un type, non verranno eliminati anche i projects con quel type ma il type verrà settato a null
         });
     }
 
